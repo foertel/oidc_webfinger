@@ -23,5 +23,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: |
-          docker build . --file Dockerfile --tag foertel/oidc-webfinger:$(date +%s)
+          docker build . --file Dockerfile --tag ghcr.io/foertel/oidc-webfinger:$(date +%s)
           docker push ghcr.io/foertel/oidc-webfinger:$(date +%s)
