@@ -32,7 +32,7 @@ jobs:
       
       - name: Test Container
         run: |
-          docker run --name webfinger ghcr.io/foertel/oidc-webfinger:${GITHUB_SHA::8}
+          docker run --name webfinger -e OIDC_ISSUER_URL="https://example.org/" -p 80:80 ghcr.io/foertel/oidc-webfinger:${GITHUB_SHA::8}
           while [ "`docker inspect -f {{.State.Health.Status}} webfinger`" != "healthy" ]; do sleep 2; done
           curl -s http://localhost/.well-known/webfinger?resource=acct:example@example.org > /tmp/curl.txt && diff /tmp/curl.txt test/example-response.json || exit 1
 
