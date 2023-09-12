@@ -51,8 +51,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     needs: build
-    permissions:
-      pull-requests: write
     steps:
       - name: Dependabot metadata
         id: metadata
