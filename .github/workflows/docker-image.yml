@@ -31,6 +31,7 @@ jobs:
         run: docker build . --file Dockerfile --tag ghcr.io/foertel/oidc-webfinger:${GITHUB_SHA::8}
       
       - name: Test Container
+        timeout-minutes: 1
         run: |
           docker run --name webfinger -e OIDC_ISSUER_URL="https://example.org/" -p 80:80 ghcr.io/foertel/oidc-webfinger:${GITHUB_SHA::8}
           while [ "`docker inspect -f {{.State.Health.Status}} webfinger`" != "healthy" ]; do sleep 1; done
