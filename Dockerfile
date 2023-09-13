@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-LABEL org.opencontainers.image.source="https://github.com/foertel/oidc_webfinger"
+LABEL org.opencontainers.image.source="https://github.com/foertel/oidc-webfinger"
 
 COPY src/ /var/www/html/
 
