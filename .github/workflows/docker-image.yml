@@ -60,7 +60,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ env.TAG_LATEST }}
+          tags: ${{ env.REGISTRY }}/${{ env.TAG_LATEST }}
     
   dependabot:
     runs-on: ubuntu-latest
